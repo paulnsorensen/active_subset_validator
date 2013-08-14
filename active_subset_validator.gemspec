@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["paulnsorensen@gmail.com"]
   spec.description   = %q{Provides subset validation for serialized arrays or sets in Active Record}
   spec.summary       = %q{Checks whether given values for a serialized array or set are a subset of a given array, set or proc against which to validate}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/paulnsorensen/active_subset_validator"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
