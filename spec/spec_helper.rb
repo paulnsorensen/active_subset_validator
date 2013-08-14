@@ -1,5 +1,7 @@
 require 'active_subset_validator'
 require 'support/active_record'
+require 'coveralls'
+Coveralls.wear!
 
 RSpec.configure do |config|
   config.around do |example|
