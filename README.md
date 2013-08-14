@@ -1,4 +1,5 @@
 # ActiveSubsetValidator
+[![Code Climate](https://codeclimate.com/github/paulnsorensen/active_subset_validator.png)](https://codeclimate.com/github/paulnsorensen/active_subset_validator)
 
 Provides subset validation for serialized arrays or sets in Active Record.
 Checks whether given values for a serialized array or set are a subset of
