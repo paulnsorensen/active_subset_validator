@@ -1,6 +1,8 @@
 # ActiveSubsetValidator
 [![Code Climate](https://codeclimate.com/github/paulnsorensen/active_subset_validator.png)](https://codeclimate.com/github/paulnsorensen/active_subset_validator)
 [![Dependency Status](https://gemnasium.com/paulnsorensen/active_subset_validator.png)](https://gemnasium.com/paulnsorensen/active_subset_validator)
+[![Gem Version](https://badge.fury.io/rb/active_subset_validator.png)](http://badge.fury.io/rb/active_subset_validator)
+[![Build Status](https://travis-ci.org/paulnsorensen/active_subset_validator.png)](https://travis-ci.org/paulnsorensen/active_subset_validator)
 
 Provides subset validation for serialized arrays or sets in Active Record.
 Checks whether given values for a serialized array or set are a subset of
