@@ -20,9 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-class Foo < ActiveRecord::Base
-  validates :bars, subset: { of: %w(some list of strings) }
-end
+    class Foo < ActiveRecord::Base
+      validates :bars, subset: { of: %w(some list of strings) }
+    end
 
 ## Contributing
 
