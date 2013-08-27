@@ -1,3 +1,3 @@
 module ActiveSubsetValidator
-  VERSION = "0.0.2alpha"
+  VERSION = "1.0.0alpha"
 end

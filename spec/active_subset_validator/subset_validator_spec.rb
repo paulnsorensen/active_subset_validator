@@ -68,7 +68,7 @@ describe SubsetValidator do
       Comment.validates :tags, subset: { of: Proc.new { |r| r.valid_set } }
       comment = Comment.new
       comment.tags = Set.new %w(python java)
-      comment.errors_on(:tags).should include "is not a subset of the list"
+      expect(comment.errors_on(:tags)).to include "is not a subset of the list"
     end
 
     it "adds an error for the invalid attribute when :of is a Set" do
@@ -76,7 +76,7 @@ describe SubsetValidator do
       Comment.validates :tags, subset: { of: Set.new([1,2,3,5]) }
       comment = Comment.new
       comment.tags = Set.new [2,4]
-      comment.errors_on(:tags).should include "is not a subset of the list"
+      expect(comment.errors_on(:tags)).to include "is not a subset of the list"
     end
 
     it "adds an error for the invalid attribute when :of is an Array" do
@@ -84,7 +84,7 @@ describe SubsetValidator do
       Comment.validates :tags, subset: { of: %w(Atlanta Cleveland Chicago) }
       comment = Comment.new
       comment.tags = %w(Chicago Boston)
-      comment.errors_on(:tags).should include "is not a subset of the list"
+      expect(comment.errors_on(:tags)).to include "is not a subset of the list"
     end
 
     it "adds a custom error message for an invalid attribute when passed" do
@@ -95,7 +95,7 @@ describe SubsetValidator do
       }
       comment = Comment.new
       comment.tags = %w(Chicago Boston)
-      comment.errors_on(:tags).should include "contains an out-of-range city"
+      expect(comment.errors_on(:tags)).to include "contains an out-of-range city"
     end
 
     it "correctly validates a serialized Set when :of is a Set" do
@@ -106,7 +106,7 @@ describe SubsetValidator do
       Comment.validates :tags, subset: { of: Set.new(%w(java scala python)) }
       comment = Comment.new
       comment.tags = Set.new %w(python java)
-      comment.should have(:no).errors_on(:tags)
+      expect(comment).to have(:no).errors_on(:tags)
     end
   
     it "correctly validates a serialized Set when :of is a Proc" do
@@ -117,7 +117,7 @@ describe SubsetValidator do
       Comment.validates :tags, subset: { of: Proc.new { |r| r.valid_set } }
       comment = Comment.new
       comment.tags = Set.new %w(python ruby)
-      comment.should have(:no).errors_on(:tags)
+      expect(comment).to have(:no).errors_on(:tags)
     end
 
     it "correctly validates a serialized Array when :of is a Array" do
@@ -125,7 +125,7 @@ describe SubsetValidator do
       Comment.validates :tags, subset: { of: %w(Atlanta Boston Chicago) }
       comment = Comment.new
       comment.tags = %w(Chicago Boston)
-      comment.should have(:no).errors_on(:tags)
+      expect(comment).to have(:no).errors_on(:tags)
     end
   
     it "correctly validates a serialized Array when :of is a Proc" do
@@ -133,7 +133,7 @@ describe SubsetValidator do
       Comment.validates :tags, subset: { of: Proc.new { [1,3,9,27,81] } }
       comment = Comment.new
       comment.tags = [9,27]
-      comment.should have(:no).errors_on(:tags)
+      expect(comment).to have(:no).errors_on(:tags)
     end
 
     it "allows nil if :allow_nil is true (default)" do
@@ -141,7 +141,7 @@ describe SubsetValidator do
       Comment.validates :tags, subset: { of: [1,3,9,27,81] }
       comment = Comment.new
       comment.tags = nil
-      comment.should have(:no).errors_on(:tags)
+      expect(comment).to have(:no).errors_on(:tags)
     end
 
     it "doesn't allow nil if :allow_nil is false" do
@@ -149,7 +149,7 @@ describe SubsetValidator do
       Comment.validates :tags, subset: { of: [1,3,9,27,81], allow_nil: false }
       comment = Comment.new
       comment.tags = nil
-      comment.errors_on(:tags).should include "cannot be nil"
+      expect(comment.errors_on(:tags)).to include "cannot be nil"
     end    
   end
 end
