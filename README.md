@@ -34,7 +34,7 @@ Add to your models like so:
 ```
 The `:of` parameter may contain an `Array` or `Set` or a `Proc` or `lambda` that returns either type.
 
-This gem is basically  a subclasss of  `ActiveModel::EachValidator` so you should have all the nifty options to pass to the `validates` method as well.
+The validator in this gem is a subclass `ActiveModel::EachValidator` so you should have all the nifty options to pass to the `validates` method as well.
 
 ```ruby
     class Comment < ActiveRecord::Base
